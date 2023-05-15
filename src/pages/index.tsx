@@ -85,40 +85,43 @@ const Home: NextPage = () => {
           </div>
         </div>
         {orderModalState && <div><div className="top-0 left-0 right-0 bottom-0 fixed bg-black bg-opacity-30 backdrop-blur-sm" onClick={() => closeOrder()}></div><div className="fixed min-w-[300px] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-md">
-          {/* <div className="bg-gradient-to-b from-blue-950 from-20% to-transparent h-72 rounded-tl-md rounded-tr-md"></div> */}
-          <div className="relative bg-black w-full">
-            <Image src={coffee} alt="Coffee" className="pt-10" />
-            <div className="from-white to-transparent bg-gradient-to-t to-50% absolute -bottom-1 top-0 left-0 right-0"></div>
+          <div className="relative bg-blue-950 w-full overflow-hidden rounded-t-md">
+            <Image src={coffee} alt="Coffee" className="pt-2 -bottom-16 relative" />
+            <div className="from-white to-transparent bg-gradient-to-t absolute top-0 bottom-0 w-full to-50%"></div>
           </div>
-          <div className="p-5 bg-white rounded-bl-md rounded-br-md">
+          <div className="p-5 bg-white rounded-bl-md rounded-br-md -top-1 relative">
             <h1 className="text-2xl font-semibold">{orderType}</h1>
             <p className="font-semibold text-sm text-gray-400">$5.00</p>
             <label className="text-xs font-semibold mt-4 mb-2 block text-gray-600">Coupon</label>
             <Menu>
       <Menu.Button className="border w-full rounded-lg text-sm text-left px-4 py-2">More</Menu.Button>
-      <Menu.Items>
+      <Menu.Items className="absolute border rounded-md flex flex-col bg-white right-5 left-5 top-28">
         <Menu.Item>
           {({ active }) => (
-            <a
-              className={`${active && 'bg-blue-500'}`}
-              href="/account-settings"
+            <p
+              className={`${active && 'bg-gray-300'} px-4 py-2 font-semibold border-b text-sm`}
             >
-              Account settings
-            </a>
+              50% <span className="text-gray-400 font-normal">(2)</span>
+            </p>
           )}
         </Menu.Item>
         <Menu.Item>
           {({ active }) => (
-            <a
-              className={`${active && 'bg-blue-500'}`}
-              href="/account-settings"
-            >
-              Documentation
-            </a>
+            <p
+            className={`${active && 'bg-gray-300'} px-4 py-2 font-semibold border-b text-sm`}
+          >
+            25% <span className="text-gray-400 font-normal">(3)</span>
+          </p>
           )}
         </Menu.Item>
-        <Menu.Item disabled>
-          <span className="opacity-75">Invite a friend (coming soon!)</span>
+        <Menu.Item>
+          {({ active }) => (
+            <p
+            className={`${active && 'bg-gray-300'} px-4 py-2 border-b text-gray-400 text-sm`}
+          >
+            No coupon
+          </p>
+          )}
         </Menu.Item>
       </Menu.Items>
     </Menu>
